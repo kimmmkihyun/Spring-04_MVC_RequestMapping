@@ -1,0 +1,30 @@
+한글처리 하는 코드!!   -> web.xml에 넣어야 한다
+	
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>	
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	WEB-INF 폴더밑에 있는 jsp는 마음대로 실행 불가능  => Controller를 통해서 실행해야 한다.
+	jsp파일 만드는 곳 : webapp ( = WebContent )
+	바로 실행하고 싶은 jsp파일은 webapp찍고 만들어야 한다.
+	
+	
+	Controller를 통한 실행방법 : 프로젝트 찍고 run on server -> 주소창에  RequestMapping설정 값 입력 -> return 값에 설정된 위치에 파일이 실행된다
